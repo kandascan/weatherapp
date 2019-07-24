@@ -1,0 +1,4 @@
+export const GET_CURRENT_WEATHER = 'GET_CURRENT_WEATHER';
+export const GET_ERRORS = 'GET_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const CLEAR_WEATHER = 'CLEAR_WEATHER';
