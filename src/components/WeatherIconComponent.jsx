@@ -20,7 +20,7 @@ class WeatherIconComponent extends Component {
                 icon: 'far fa-snowflake'
             },
             {
-                name: 'smog',
+                name: 'fog',
                 icon: 'fas fa-smog'
             },
             {
