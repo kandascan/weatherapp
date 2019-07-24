@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { getCurrentWeather } from '../actions/weatherActions';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Alert from './AlertComponent';
 
 class FormComponent extends Component {
     constructor(props) {
@@ -27,7 +28,9 @@ class FormComponent extends Component {
 
         return (
             <div className='search-form'>
-                <form className='' noValidate onSubmit={this.handleSubmit} >
+                <div className='img-form'></div>
+                <Alert />
+                <form noValidate onSubmit={this.handleSubmit} >
                     <div className='input-txt'>
                         <input type='text' placeholder='Enter city name' value={city} onChange={this.handleChange} name='city' />
                     </div>
