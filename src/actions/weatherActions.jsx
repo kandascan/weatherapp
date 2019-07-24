@@ -5,7 +5,7 @@ import { setError, clearError } from './errorActions';
 const API_KEY = 'd9f3d8b3e6b374637a36660b1efc332e';
 
 export const getCurrentWeather = (city) => dispatch => {
-    axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&mode=json&units=metric&appid=${API_KEY}`)
+    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&mode=json&units=metric&appid=${API_KEY}`)
     .then(res => {
         dispatch(clearError());
         dispatch({
