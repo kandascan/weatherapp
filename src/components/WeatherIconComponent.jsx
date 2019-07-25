@@ -4,40 +4,36 @@ class WeatherIconComponent extends Component {
     setIcon = (weatherName) => {
         const icons = [
             {
-                name: 'storm',
+                name: ['Thunderstorm', 'Storm'],
                 icon: 'fas fa-poo-storm'
             },
             {
-                name: 'dizzle',
+                name: ['Drizzle'],
                 icon: 'fas fa-cloud-showers-heavy'
             },
             {
-                name: 'rain',
+                name: ['Rain'],
                 icon: 'fas fa-cloud-rain'
             },
             {
-                name: 'snow',
+                name: ['Snow'],
                 icon: 'far fa-snowflake'
             },
             {
-                name: 'fog',
+                name: ['Mist', 'Smoke', 'Haze', 'Dust', 'Fog', 'Sand', 'Dust', 'Ash', 'Squall', 'Tornado'],
                 icon: 'fas fa-smog'
             },
             {
-                name: 'smoke',
-                icon: 'fas fa-smog'
-            },
-            {
-                name: 'clear',
+                name: ['Clear'],
                 icon: 'fas fa-sun'
             },
             {
-                name: 'clouds',
+                name: ['Clouds'],
                 icon: 'fas fa-cloud'
             }
         ];
 
-        return icons.find(x => x.name === weatherName.toLowerCase());
+        return icons.find(x => x.name.includes(weatherName));
     }
 
     render() {
