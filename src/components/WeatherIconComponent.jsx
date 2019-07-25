@@ -24,6 +24,10 @@ class WeatherIconComponent extends Component {
                 icon: 'fas fa-smog'
             },
             {
+                name: 'smoke',
+                icon: 'fas fa-smog'
+            },
+            {
                 name: 'clear',
                 icon: 'fas fa-sun'
             },
@@ -39,6 +43,7 @@ class WeatherIconComponent extends Component {
     render() {
         const { weatherName } = this.props;
         let result = this.setIcon(weatherName);
+        console.log(weatherName);
         return (
             <div>
                 <i className={result.icon}></i>
