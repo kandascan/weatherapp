@@ -36,7 +36,10 @@ import { connect } from 'react-redux';
     }
     render() {
         return (
-            <div>
+            <div className='container'>
+                <br />
+                <br />
+                <br />
                 <h2>Calculator</h2>                
                 <div className='input-txt'>
                     <input type='text' placeholder='Enter num 1' value={this.state.num1} onChange={this.handleChange} name='num1' />
@@ -45,12 +48,17 @@ import { connect } from 'react-redux';
                     <input type='text' placeholder='Enter num 2' value={this.state.num2} onChange={this.handleChange} name='num2' />
                 </div>
                 <button className='btn' type='button' onClick={this.Add} >Add</button>
-                <hr />
+                <br />
+                <br />
                 <button className='btn' type='button' onClick={this.Minus} >Minus</button>
-                <hr />
+                <br />
+                <br />
                 <button className='btn' type='button' onClick={this.Multiple} >Multiple</button>
-                <hr />
+                <br />
+                <br />
                 <button className='btn' type='button' onClick={this.Divide} >Divide</button>
+                <br />
+                <br />
                 <h2>Result: {this.props.calc.result}</h2>
             </div>
         )
