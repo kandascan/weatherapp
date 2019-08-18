@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
-import { addTwoNumbers, minusTwoNumbers , multipleTwoNumbers, divideTwoNumbers} from '../actions/calculatorActions';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
  class CalculatorComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
             num1: 0,
-            num2: 0
+            num2: 0,
+            result: 0,
         }
     }
 
@@ -19,20 +18,24 @@ import { connect } from 'react-redux';
     }
 
     Add = (e) => {
-        e.preventDefault();  
-        this.props.addTwoNumbers(this.state.num1, this.state.num2);
+        this.setState({
+            result: parseInt(this.state.num1) + parseInt(this.state.num2)
+        });
     }
     Minus = (e) => {
-        e.preventDefault();        
-        this.props.minusTwoNumbers(this.state.num1, this.state.num2);
+        this.setState({
+            result: parseInt(this.state.num1) - parseInt(this.state.num2)
+        });
     }
     Multiple = (e) => {
-        e.preventDefault();        
-        this.props.multipleTwoNumbers(this.state.num1, this.state.num2);
+        this.setState({
+            result: parseInt(this.state.num1) * parseInt(this.state.num2)
+        });
     }
     Divide = (e) => {
-        e.preventDefault();        
-        this.props.divideTwoNumbers(this.state.num1, this.state.num2);
+        this.setState({
+            result: parseInt(this.state.num1) / parseInt(this.state.num2)
+        });
     }
     render() {
         return (
@@ -59,7 +62,7 @@ import { connect } from 'react-redux';
                 <button className='btn' type='button' onClick={this.Divide} >Divide</button>
                 <br />
                 <br />
-                <h2>Result: {this.props.calc.result}</h2>
+                <h2>Result: {this.state.result}</h2>
             </div>
         )
     }
@@ -74,9 +77,5 @@ CalculatorComponent.propType = {
 }
   
 
-const mapStateToProps = (state) => ({
-    calc: state.calculator
-});
 
-export default connect(mapStateToProps, {addTwoNumbers, minusTwoNumbers ,
-     multipleTwoNumbers, divideTwoNumbers})(CalculatorComponent)
+export default CalculatorComponent;
