@@ -15,10 +15,10 @@ class AlertComponent extends Component {
 
 AlertComponent.propType = {
     error: PropTypes.object.isRequired
-  }
+}
   
-  const mapStateToProps = (state) => ({
+const mapStateToProps = (state) => ({
     error: state.error
-  });
+});
 
-  export default connect(mapStateToProps, { })(AlertComponent);
+export default connect(mapStateToProps, { })(AlertComponent);
