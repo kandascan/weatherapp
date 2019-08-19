@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
+import InputComponent from './InputComponent';
+import Result from './ResultCalculationComponent';
+import ButtonComponent from './ButtonComponent';
 
  class CalculatorComponent extends Component {
     constructor(props) {
@@ -17,26 +20,12 @@ import PropTypes from 'prop-types';
         });
     }
 
-    Add = (e) => {
+    updateResult = (result) => {
         this.setState({
-            result: parseInt(this.state.num1) + parseInt(this.state.num2)
+            result: result
         });
     }
-    Minus = (e) => {
-        this.setState({
-            result: parseInt(this.state.num1) - parseInt(this.state.num2)
-        });
-    }
-    Multiple = (e) => {
-        this.setState({
-            result: parseInt(this.state.num1) * parseInt(this.state.num2)
-        });
-    }
-    Divide = (e) => {
-        this.setState({
-            result: parseInt(this.state.num1) / parseInt(this.state.num2)
-        });
-    }
+    
     render() {
         return (
             <div className='container'>
@@ -44,25 +33,13 @@ import PropTypes from 'prop-types';
                 <br />
                 <br />
                 <h2>Calculator</h2>                
-                <div className='input-txt'>
-                    <input type='text' placeholder='Enter num 1' value={this.state.num1} onChange={this.handleChange} name='num1' />
-                </div>
-                <div className='input-txt'>
-                    <input type='text' placeholder='Enter num 2' value={this.state.num2} onChange={this.handleChange} name='num2' />
-                </div>
-                <button className='btn' type='button' onClick={this.Add} >Add</button>
-                <br />
-                <br />
-                <button className='btn' type='button' onClick={this.Minus} >Minus</button>
-                <br />
-                <br />
-                <button className='btn' type='button' onClick={this.Multiple} >Multiple</button>
-                <br />
-                <br />
-                <button className='btn' type='button' onClick={this.Divide} >Divide</button>
-                <br />
-                <br />
-                <h2>Result: {this.state.result}</h2>
+                <InputComponent placeholder='Enter num 1' value={this.state.num1} onChange={this.handleChange} name='num1' />
+                <InputComponent placeholder='Enter num 2' value={this.state.num2} onChange={this.handleChange} name='num2' />
+                <ButtonComponent name={'Add'} num1={this.state.num1} num2={this.state.num2} setResult={this.updateResult} />
+                <ButtonComponent name={'Minus'} num1={this.state.num1} num2={this.state.num2} setResult={this.updateResult} />
+                <ButtonComponent name={'Multiple'} num1={this.state.num1} num2={this.state.num2} setResult={this.updateResult} />
+                <ButtonComponent name={'Divide'} num1={this.state.num1} num2={this.state.num2} setResult={this.updateResult} />
+                <Result result={this.state.result} />
             </div>
         )
     }
